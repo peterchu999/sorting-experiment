@@ -1,3 +1,10 @@
+# Comparison Between Sorting Algorithm (with Go)
+
+## Running Python Visualization
+
+- `pip install -r requirements.txt`
+- `python main.py`
+
 ## Running Golang Sorting
 
 - run the `main` executable
