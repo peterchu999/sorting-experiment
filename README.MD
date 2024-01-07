@@ -40,4 +40,5 @@ Wierd isn't it ? but when we see the bigger picture the theory would align with 
 
 ## Code Taken From
 
-- https://blog.boot.dev/golang/quick-sort-golang/
+- https://blog.boot.dev/golang/quick-sort-golang/ (quick sort)
+- https://www.tutorialspoint.com/how-to-generate-a-array-of-unique-random-numbers-in-golang (generate random number array)
