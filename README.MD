@@ -10,6 +10,10 @@ but when I implemented all of the sorting algorithm in golang here is the graph 
 
 ![Combined Sorting Algorithm Vis](./visualization/combined-comparison-between-sort.png)
 
+## Running Workflow
+
+- `./run-all.sh [n]`, change `[n]` with the number of max array size for benchmark
+
 ## Running Python Visualization
 
 - `pip install -r requirements.txt`
