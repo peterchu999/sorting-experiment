@@ -31,8 +31,8 @@ def plotting_seperately(df):
     ax4.grid()
     
     
-    fig.savefig("comparison-between-sort.png")
-    plt.show()
+    fig.savefig(f"comparison-between-sort-{len(df)}.png")
+    
 
 def plotting_combined(df):
     plt.figure(figsize=(10,10))    
@@ -44,8 +44,8 @@ def plotting_combined(df):
     plt.plot(df.index, df["quick"] / (1000),label="quick")
     plt.plot(df.index, df["sort"] / (1000),label="sort")
     plt.legend()
-    plt.savefig("combined-comparison-between-sort.png")
-    plt.show()
+    plt.savefig(f"combined-comparison-between-sort-{len(df)}.png")
+    
 
 def fix_outlier(df_series):
     Q1 = df_series.quantile(0.25)
@@ -67,8 +67,8 @@ def plotting_theory(df):
     plt.plot(df.index, df["log_n"] ,label="log_n")
     plt.plot(df.index, df["n_squared"],label="n_squared")
     plt.legend()
-    plt.savefig("theory-comparison-sort.png") 
-    plt.show()
+    plt.savefig(f"theory-comparison-sort-{len(df)}.png") 
+    
 
 
 # Define the updated cal function
@@ -89,13 +89,15 @@ if __name__ == "__main__":
     df["sort"] = fix_outlier(df["sort"])
     df["quick"] = fix_outlier(df["quick"])
 
+    
+
     plotting_seperately(df)
     plotting_combined(df)
 
 
     # Use a list comprehension to apply the updated cal function 300 times
-    resultsLogN = [cal_log_n(i) for i in range(1, 301)]  # Avoid log(0)
-    resultsSquaredN = [cal_squared_n(i) for i in range(1, 301)]  # Avoid log(0)
+    resultsLogN = [cal_log_n(i) for i in range(1, len(df) + 1)]  # Avoid log(0)
+    resultsSquaredN = [cal_squared_n(i) for i in range(1, len(df) + 1)]  # Avoid log(0)
 
     # Create a DataFrame from the results list
     df = pd.DataFrame({'log_n': resultsLogN, "n_squared": resultsSquaredN})

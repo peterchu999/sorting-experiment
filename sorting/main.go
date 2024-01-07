@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"sort"
+	"strconv"
 	"time"
 
 	"github.com/peterchu999/sort/sortAlgorithm"
@@ -11,13 +13,13 @@ import (
 
 
 
-func run_test() {
+func run_test(arrLen int) {
 	mergeTimeTracker := []int64{}	
 	bubbleTimeTracker := []int64{}
 	builtInTimeTracker := []int64{}
 	quickTimeTracker := []int64{}
 
-	for i:=1; i < 300; i++ {
+	for i:=1; i < arrLen+1; i++ {
 		testCase := utils.GenerateUniqueRandomNumbers(i, 100)
 		mergeT := utils.TestSorting(sortAlgorithm.MergeSortVoid, testCase)
 		time.Sleep(time.Millisecond * 5) // incase computation degenerate machine and make later case worst
@@ -43,7 +45,20 @@ func run_test() {
 	fmt.Println("Done...")
 }
 
+func getArrLen() int {
+	args := os.Args[1:]
+	if len(args) > 0 {
+		a := args[0]
+		arrLenFromArg, err := strconv.Atoi(a) 
+		if err == nil {
+			return arrLenFromArg
+		} 
+	}
+	return 300
+}
+
 
 func main() {
-	run_test()
+	arrLen := getArrLen()
+	run_test(arrLen)
 }
