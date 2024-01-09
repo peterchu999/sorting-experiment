@@ -1,5 +1,11 @@
 # Comparison Between Sorting Algorithm (with Go)
 
+## My Post 
+
+Checkout my post on dev.to: https://dev.to/peterchu999/sorting-algorithm-theory-vs-implementation--40ga/
+
+## Thought
+
 By theory `bubble sort` would had the `n^2` complexity, and the rest `(merge,quick,built-in sort func)` would had `n*log(n)` complexity. here is the graph example :
 
 <img alt="Theory Sorting Visulization" src="./visualization/theory-comparison-sort-300.png" style="width: 60%; display:block; margin: .5em auto"/>
